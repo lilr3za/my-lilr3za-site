@@ -1,0 +1,45 @@
+# admin/config.yml
+
+backend:
+  name: git-gateway # این گزینه برای اتصال به هاست‌هایی مثل Netlify عالیه
+  branch: main # یا master، بستگی به شاخه اصلی گیت شما داره
+
+media_folder: "images/uploads" # عکس‌های جدید اینجا ذخیره می‌شن
+public_folder: "/images/uploads"
+
+collections:
+  - name: "content"
+    label: "محتوای صفحه"
+    files:
+      - label: "محتوای اصلی سایت"
+        name: "main"
+        file: "content.json" # تمام محتوا در این فایل ذخیره می‌شه
+        fields:
+          - { label: "عنوان اصلی Hero", name: "hero_headline", widget: "string" }
+          - { label: "متن کوتاه Hero", name: "hero_tagline", widget: "string" }
+          - label: "خدمات"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "عنوان خدمت", name: "title", widget: "string" }
+              - { label: "توضیحات خدمت", name: "description", widget: "text" }
+          - label: "آمار نمونه کارها"
+            name: "portfolio_stats"
+            widget: "list"
+            fields:
+              - { label: "عنوان آمار", name: "label", widget: "string" }
+              - { label: "عدد نهایی آمار", name: "goal", widget: "number" }
+          - { label: "لینک پلی‌لیست اسپاتیفای", name: "spotify_playlist_url", widget: "string" }
+          - label: "اثر پربازدید"
+            name: "featured_track"
+            widget: "object"
+            fields:
+              - { label: "کاور آرت", name: "cover_art", widget: "image" }
+              - { label: "نام موزیک", name: "name", widget: "string" }
+              - { label: "نام هنرمند", name: "artist", widget: "string" }
+              - { label: "لینک اسپاتیفay", name: "url", widget: "string" }
+          - { label: "عکس درباره من", name: "about_image", widget: "image" }
+          - { label: "متن معرفی (درباره من)", name: "about_intro", widget: "text" }
+          - { label: "متن تجربه (درباره من)", name: "about_experience", widget: "text" }
+          - { label: "متن ماموریت (درباره من)", name: "about_mission", widget: "text" }
+          - { label: "ایمیل تماس (فوتر)", name: "contact_email", widget: "string" }
