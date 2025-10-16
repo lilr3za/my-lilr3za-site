@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: 
+  repo: lilr3za/my-lilr3za-site
   branch: main
-  base_url: https://my-lilr3za-site.vercel.app # ⚠️ آدرس سایت ورسل خود را جایگزین کنید
+  base_url: https://lilr3za-web.vercel.app
   auth_endpoint: /api/auth
 
 media_folder: "images/uploads"
@@ -45,3 +45,4 @@ collections:
           - { label: "متن تجربه (درباره من)", name: "about_experience", widget: "text" }
           - { label: "متن ماموریت (درباره من)", name: "about_mission", widget: "text" }
           - { label: "ایمیل تماس (فوتر)", name: "contact_email", widget: "string" }
+
