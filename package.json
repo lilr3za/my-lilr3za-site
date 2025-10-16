@@ -1,7 +1,0 @@
-{
-  "name": "lilr3za-auth-server",
-  "version": "1.0.0",
-  "dependencies": {
-    "decap-cms-oauth-provider-vercel": "^1.2.0"
-  }
-}
