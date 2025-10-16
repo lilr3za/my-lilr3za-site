@@ -29,15 +29,14 @@
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
             </button>
-       <div id="mobileNav" class="mobile-nav">
-     <div class="mobile-nav-box">
-         <a href="#home">صفحه اصلی</a>
-         <a href="#services">خدمات</a>
-         <a href="#portfolio">نمونه کارها</a>
-         <a href="#about">درباره من</a>
-         <a href="#process">فرایند همکاری</a>
-     </div>
- </div>
+        </div>
+        <div id="mobileNav" class="mobile-nav">
+            <a href="#home">صفحه اصلی</a>
+            <a href="#services">خدمات</a>
+            <a href="#portfolio">نمونه کارها</a>
+            <a href="#about">درباره من</a>
+            <a href="#process">فرایند همکاری</a>
+        </div>
     </header>
 
     <main>
@@ -168,7 +167,7 @@
         <section id="about">
              <div class="container">
                   <div class="section-title animated">
-                       <h2>درباره من</h2>
+                        <h2>درباره من</h2>
                   </div>
                   <div class="about-content animated">
                        <div class="about-image">
@@ -262,7 +261,6 @@
         document.addEventListener('DOMContentLoaded', () => {
 
             function initializePageLogic() {
-                // All original interactive JS logic is here...
                 const themeToggleButton = document.getElementById('themeToggleBtn');
                 const body = document.body;
                 const toggleIcon = themeToggleButton.querySelector('i');
@@ -348,12 +346,23 @@
                     statObserver.observe(statsGrid);
                 }
 
+                // ✅ JS for menu is now simple and bug-free
                 const hamburgerBtn = document.getElementById('hamburgerBtn');
                 const mobileNav = document.getElementById('mobileNav');
                 if (hamburgerBtn && mobileNav) {
                     const mobileNavLinks = mobileNav.querySelectorAll('a');
-                    hamburgerBtn.addEventListener('click', () => { hamburgerBtn.classList.toggle('active'); mobileNav.classList.toggle('active'); document.body.classList.toggle('no-scroll'); });
-                    mobileNavLinks.forEach(link => { link.addEventListener('click', () => { hamburgerBtn.classList.remove('active'); mobileNav.classList.remove('active'); document.body.classList.remove('no-scroll'); }); });
+                    hamburgerBtn.addEventListener('click', () => {
+                        hamburgerBtn.classList.toggle('active');
+                        mobileNav.classList.toggle('active');
+                        document.body.classList.toggle('no-scroll');
+                    });
+                    mobileNavLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            hamburgerBtn.classList.remove('active');
+                            mobileNav.classList.remove('active');
+                            document.body.classList.remove('no-scroll');
+                        });
+                    });
                 }
 
                 const partnersBox = document.querySelector('.split-screen-container');
@@ -375,7 +384,6 @@
                     return response.json();
                 })
                 .then(data => {
-                    // ✅ CORRECTED: Access the 'main' object from the JSON
                     const content = data.main;
 
                     // Populate Hero
@@ -435,11 +443,9 @@
                     console.error('Error loading content:', error, 'Displaying static content as fallback.');
                 })
                 .finally(() => {
-                    // CRITICAL: Initialize all interactive scripts AFTER the fetch is complete (or has failed)
                     initializePageLogic();
                 });
         });
     </script>
 </body>
-
 </html>
