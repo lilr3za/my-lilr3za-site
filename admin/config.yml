@@ -1,10 +1,11 @@
-# admin/config.yml
-
 backend:
-  name: git-gateway # این گزینه برای اتصال به هاست‌هایی مثل Netlify عالیه
-  branch: main # یا master، بستگی به شاخه اصلی گیت شما داره
+  name: github
+  repo: 
+  branch: main
+  base_url: https://my-lilr3za-site.vercel.app # ⚠️ آدرس سایت ورسل خود را جایگزین کنید
+  auth_endpoint: /api/auth
 
-media_folder: "images/uploads" # عکس‌های جدید اینجا ذخیره می‌شن
+media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
@@ -13,8 +14,9 @@ collections:
     files:
       - label: "محتوای اصلی سایت"
         name: "main"
-        file: "content.json" # تمام محتوا در این فایل ذخیره می‌شه
+        file: "content.json"
         fields:
+          # ... (تمام فیلدهای شما بدون تغییر اینجا قرار دارند)
           - { label: "عنوان اصلی Hero", name: "hero_headline", widget: "string" }
           - { label: "متن کوتاه Hero", name: "hero_tagline", widget: "string" }
           - label: "خدمات"
@@ -37,7 +39,7 @@ collections:
               - { label: "کاور آرت", name: "cover_art", widget: "image" }
               - { label: "نام موزیک", name: "name", widget: "string" }
               - { label: "نام هنرمند", name: "artist", widget: "string" }
-              - { label: "لینک اسپاتیفay", name: "url", widget: "string" }
+              - { label: "لینک اسپاتیفای", name: "url", widget: "string" }
           - { label: "عکس درباره من", name: "about_image", widget: "image" }
           - { label: "متن معرفی (درباره من)", name: "about_intro", widget: "text" }
           - { label: "متن تجربه (درباره من)", name: "about_experience", widget: "text" }
