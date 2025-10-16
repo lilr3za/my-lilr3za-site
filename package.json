@@ -1,14 +1,7 @@
 {
-    "name": "lilr3za-website-backend",
-    "version": "1.0.0",
-    "description": "Serverless function for Decap CMS authentication",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "decap-cms-oauth-provider-vercel": "^1.2.0"
-    }
+  "name": "lilr3za-auth-server",
+  "version": "1.0.0",
+  "dependencies": {
+    "decap-cms-oauth-provider-vercel": "^1.2.0"
   }
+}
