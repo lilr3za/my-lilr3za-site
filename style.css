@@ -455,7 +455,7 @@ body.light-mode #themeToggleBtn:hover {
 
 /* --- Mobile Navigation --- */
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none;
     position: relative;
     z-index: 1001;
     background: none;
@@ -485,10 +485,13 @@ body.light-mode #themeToggleBtn:hover {
 .mobile-nav {
     position: fixed;
     top: 0;
-    left: 100%; /* Start off-screen */
+    left: 100%;
     width: 100%;
     height: 100vh;
-    background-color: var(--background-color);
+    /* ✅ NEW: Background with blur effect */
+    background-color: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     display: flex;
     flex-direction: column;
@@ -496,6 +499,9 @@ body.light-mode #themeToggleBtn:hover {
     align-items: center;
     transition: left 0.5s cubic-bezier(0.86, 0, 0.07, 1);
     visibility: hidden;
+}
+body.light-mode .mobile-nav {
+    background-color: rgba(244, 244, 249, 0.7);
 }
 .mobile-nav.active {
     left: 0;
@@ -545,31 +551,37 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
+    /* === 💅 NEW IMPROVEMENT: Reducing space for mobile === */
+    section { 
+        padding: 60px 0; 
+    }
+    .section-title {
+        margin-bottom: 50px;
+    }
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2.2rem; }
-    h3 { font-size: 1.8rem; }
+    h3 { font-size: 1.8rem; margin-bottom: 15px; }
+    h4 { margin-bottom: 15px; }
     p { font-size: 1rem; }
-    section { padding: 80px 0; }
-
-    /* === 💅 IMPROVEMENT START === */
+    
+    /* === Header from previous step === */
     .header {
-        padding: 10px 0; /* Header باریک‌تر */
+        padding: 10px 0;
     }
     .header .container {
-        direction: ltr; /* ✅ FIX: لوگو چپ، همبرگر راست */
+        direction: ltr;
         justify-content: space-between;
         padding: 0 20px;
     }
     .logo {
-        font-size: 1.6rem; /* ✅ FIX: لوگو کوچکتر */
+        font-size: 1.6rem;
     }
     .nav-menu { display: none; }
     .hamburger { display: block; }
     
     .process-step {
-        padding: 30px; /* ✅ FIX: متناسب‌سازی با سایر باکس‌ها */
+        padding: 30px;
     }
-    /* === 💅 IMPROVEMENT END === */
 
     .platforms-grid {
         gap: 30px;
@@ -588,10 +600,11 @@ body.no-scroll {
     .stat-card {
         padding: 30px;
     }
-
+    
+    /* === 💅 NEW IMPROVEMENT: More compact contact form === */
     .contact-form {
-        padding: 30px 25px;
-        margin-top: 50px;
+        padding: 30px 20px; /* Reduced side padding */
+        margin-top: 40px; /* Reduced top margin */
     }
     
     .split-screen-container {
@@ -599,7 +612,7 @@ body.no-scroll {
         min-height: 80vh;
     }
     .split-screen-container:hover .split-pane {
-        flex-grow: 1; /* Disable shrink/grow effect on mobile */
+        flex-grow: 1;
     }
     .split-pane:first-child {
         border-left: none;
@@ -608,5 +621,4 @@ body.no-scroll {
     .split-content h3 {
         font-size: 2rem;
     }
-
 }
